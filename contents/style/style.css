@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+.wrapper {
+  box-shadow: 0 0 8px 0;
+  margin: 10px;
+  width: 70%;
+  background-color: #edf5f077;
+}
+.form {
+  margin: 10px;
+}
+.h1 {
+  margin-bottom: 5px;
+  color: #ca1b1b;
+}
+.taskInput {
+  border: none;
+  border-bottom: 2px solid rgb(114, 97, 98);
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+}
+.primary-btn {
+  padding: 15px 20px 15px 20px;
+  font-weight: bold;
+  margin: 15px 0 0 10px;
+  color: #fff;
+  background-color: #187959;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+}
+.primary-btn:hover {
+  background-color: #0f1414;
+  color: #fff;
+}
+.h2 {
+  margin: 10px;
+  color: #187971;
+}
+.filterTask {
+  margin: 10px;
+}
+.filterInput {
+  border: none;
+  /* margin-bottom: 10px; */
+  border-bottom: 2px solid rgb(97, 97, 114);
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  outline: none;
+  background-color: transparent;
+}
+.taskList ul {
+  list-style: none;
+}
+.list-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px 10px 15px;
+  border: 2px solid #dce4e3;
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.secondary-btn {
+  padding: 5px 30px 5px 30px;
+  color: #e1fdfd;
+  background-color: #030202;
+  margin: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+.secondary-btn:hover {
+  background-color: #ca1b1b;
+}
+.completed-h1 {
+  color: #717a77;
+  text-align: center;
+  text-decoration: underline 2px solid rgb(5, 41, 7);
+  margin-bottom: 5%;
+  padding: 5px;
+  border-top: 2px solid grey;
+  font-size: 40px;
+}
+.ol {
+  list-style: none;
+}
+.reportList {
+  margin: 0 10px 10px 10px;
+  border-bottom: 1px solid black;
+}
+.completed-lists {
+  font-size: 25px;
+  font-family: sans-serif;
+  /* border-radius: 5px; */
+  margin-bottom: 10px;
+  margin-left: 5%;
+  color: #253b34;
+  outline: none;
+  padding: 5px;
+  font-weight: bold;
+  list-style: circle;
+  border-top: 2px solid rgb(16, 17, 16);
+}
+.clearAllCompletedTaskDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.completeBtn {
+  padding: 20px 10px 20px 10px;
+  color: #e1fdfd;
+  background-color: #ee0808;
+  font-size: 18px;
+  border-radius: 5px;
+  font-weight: bolder;
+  text-transform: capitalize;
+  border: none;
+  text-align: center;
+}
+.reset {
+  display: flex;
+  justify-content: end;
+}
