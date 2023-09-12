@@ -6,19 +6,22 @@
 body {
   display: flex;
   justify-content: center;
+  background-color: #9ca29e77;
+  flex-direction: column;
+  align-items: center;
 }
 .wrapper {
   box-shadow: 0 0 8px 0;
   margin: 10px;
   width: 70%;
-  background-color: #edf5f077;
+  background-color: white;
 }
 .form {
   margin: 10px;
 }
 .h1 {
   margin-bottom: 5px;
-  color: #ca1b1b;
+  color: #04310e;
 }
 .taskInput {
   border: none;
@@ -46,11 +49,13 @@ body {
 .h2 {
   margin: 10px;
   color: #187971;
+  font-size: 18px;
 }
 .filterTask {
   margin: 10px;
 }
-.filterInput {
+.filterInput,
+.filterInput2 {
   border: none;
   /* margin-bottom: 10px; */
   border-bottom: 2px solid rgb(97, 97, 114);
@@ -81,18 +86,21 @@ body {
   border-radius: 5px;
   font-weight: bolder;
   text-transform: capitalize;
+  border: none;
 }
-.secondary-btn:hover {
+.secondary-btn:hover,
+.clearCompleteBtn:hover,
+.clearTask:hover {
   background-color: #ca1b1b;
 }
 .completed-h1 {
-  color: #717a77;
+  color: #04310e;
   text-align: center;
   text-decoration: underline 2px solid rgb(5, 41, 7);
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   padding: 5px;
   border-top: 2px solid grey;
-  font-size: 40px;
+  font-size: 35px;
 }
 .ol {
   list-style: none;
@@ -102,36 +110,31 @@ body {
   border-bottom: 1px solid black;
 }
 .completed-lists {
-  font-size: 25px;
+  font-size: 20px;
   font-family: sans-serif;
-  /* border-radius: 5px; */
   margin-bottom: 10px;
-  margin-left: 5%;
+  margin-left: 2%;
   color: #253b34;
   outline: none;
-  padding: 5px;
+  padding: 10px;
   font-weight: bold;
-  list-style: circle;
+  /* list-style: disc; */
   border-top: 2px solid rgb(16, 17, 16);
+  border-left: 2px solid rgb(16, 17, 16);
 }
-.clearAllCompletedTaskDiv {
+.reset {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
+  justify-content: space-between;
 }
-.completeBtn {
-  padding: 20px 10px 20px 10px;
+.clearCompleteBtn,
+.clearTask {
+  padding: 5px 30px 5px 30px;
   color: #e1fdfd;
-  background-color: #ee0808;
-  font-size: 18px;
+  background-color: #030202;
+  margin: 10px;
+  font-size: 15px;
   border-radius: 5px;
   font-weight: bolder;
   text-transform: capitalize;
   border: none;
-  text-align: center;
-}
-.reset {
-  display: flex;
-  justify-content: end;
 }

@@ -7,11 +7,14 @@ const formList = document.querySelector(".taskList");
 const reportCardForm = document.querySelector(".reportList");
 const reportCard_ul = document.querySelector(".reportList-ul");
 const reportCardList = document.querySelector(".completed-lists");
+const clearCompleteTaskBtn = document.querySelector(".clearCompleteBtn");
+const filterTask2 = document.querySelector(".filterInput2");
+const clearAllAddedTask = document.querySelector(".clearTask");
 
 // events
 
 function loadAllevent() {
-  // DOM load evet
+  // DOM load events
 
   document.addEventListener("DOMContentLoaded", getTask);
   document.addEventListener("DOMContentLoaded", getTask2);
@@ -22,6 +25,9 @@ function loadAllevent() {
   formList.addEventListener("click", removeTask);
   clearTasks.addEventListener("click", reset);
   filterTask.addEventListener("input", filter);
+  clearCompleteTaskBtn.addEventListener("click", clearCompleteTask);
+  filterTask2.addEventListener("input", filter2);
+  clearAllAddedTask.addEventListener("click", clearAddedTask);
 
   // submit.addEventListener("click", saveTask);
 }
@@ -58,20 +64,25 @@ function getTask() {
     let i = document.createElement("i");
     i.className = "fa-solid fa-xmark fa-flip";
     i.style.color = "rgba(209, 43, 43, 0.822)";
+    i.style.padding = "5px";
     a.appendChild(i);
     div.appendChild(a);
     div.appendChild(check);
     li.appendChild(div);
     ul.appendChild(li);
     formList.appendChild(ul);
+
     // check list event listeners
+
     check.addEventListener("click", run);
     check.addEventListener("click", run2);
+
     //
   });
+
   //  check Funtion to get task-list value
+
   function run2(e) {
-    alert("Congratulations, Keep it up!");
     return deleteLs(
       e.target.parentElement.parentElement.firstChild.textContent
     );
@@ -79,8 +90,11 @@ function getTask() {
   //
 
   function run(e) {
-    e.target.parentElement.parentElement.remove();
-    return write(e.target.parentElement.parentElement.firstChild.textContent);
+    if (confirm("proceed")) {
+      alert("Congratulations, Keep it up!");
+      e.target.parentElement.parentElement.remove();
+      return write(e.target.parentElement.parentElement.firstChild.textContent);
+    }
   }
 }
 //
@@ -127,6 +141,7 @@ function addTask(e) {
   let i = document.createElement("i");
   i.className = "fa-solid fa-xmark fa-flip";
   i.style.color = "rgba(209, 43, 43, 0.822)";
+  i.style.padding = "5px";
 
   a.appendChild(i);
   div.appendChild(a);
@@ -153,7 +168,6 @@ function addTask(e) {
   //  check Funtion to get task-list value to add to completed task local storage
 
   function run2(e) {
-    alert("Congratulations, Keep it up!");
     return deleteLs(
       e.target.parentElement.parentElement.firstChild.textContent
     );
@@ -164,8 +178,11 @@ function addTask(e) {
   // Funtion to get task-list value to delete from task local storage
 
   function run(e) {
-    e.target.parentElement.parentElement.remove();
-    return write(e.target.parentElement.parentElement.firstChild.textContent);
+    if (confirm("Add to completed tasks?")) {
+      alert("Congratulations, Keep it up!");
+      e.target.parentElement.parentElement.remove();
+      return write(e.target.parentElement.parentElement.firstChild.textContent);
+    }
   }
 
   //
@@ -187,7 +204,7 @@ function write(e) {
   li.textContent = e;
   ol.appendChild(li);
   reportCardForm.appendChild(ol);
-  console.log(e);
+
   storeTaskToLocalStorage2(e);
 }
 
@@ -237,6 +254,17 @@ function removeTask(e) {
   }
 }
 
+//
+
+// clear added task list
+function clearAddedTask() {
+  if (confirm("Are you sure")) {
+    while (formList.firstChild) {
+      formList.removeChild(formList.firstChild);
+    }
+    localStorage.removeItem("task");
+  }
+}
 //
 
 // Delete from task local storage through the check icon
@@ -299,22 +327,58 @@ function reset() {
 
 //
 
-// no.4 Filter task funtion
+// no.4 Filter completed task funtion
 
 function filter(e) {
   let text = e.target.value.toLowerCase();
 
-  let task = document.querySelectorAll(".list-items");
+  let task = document.querySelectorAll(".completed-lists");
 
   task.forEach((task) => {
     let item = task.firstChild.textContent;
     if (item.toLowerCase().indexOf(text) != -1) {
-      task.style.display = "flex";
-      task.style.justifyContent = "space-between";
+      task.style.display = "block";
+      task.style.listStyle = "disc";
     } else {
       task.style.display = "none";
     }
   });
+}
+
+//
+
+// Filter  task funtion
+
+function filter2(e) {
+  let input = e.target.value.toLowerCase();
+  let list = document.querySelectorAll(".list-items");
+  list.forEach((list) => {
+    let item = list.firstChild.textContent;
+    if (item.toLocaleLowerCase().indexOf(input) != -1) {
+      list.style.display = "flex";
+      list.style.justifyContent = "space-between";
+    } else {
+      list.style.display = "none";
+    }
+  });
+}
+
+//
+
+// Clear completed task
+
+function clearCompleteTask() {
+  if (reportCardForm.innerHTML === "") {
+    alert("Cleared");
+  } else {
+    if (confirm("Are you sure?")) {
+      while (reportCardForm.firstChild) {
+        reportCardForm.removeChild(reportCardForm.firstChild);
+      }
+
+      localStorage.removeItem("completedTask");
+    }
+  }
 }
 
 //
@@ -346,3 +410,4 @@ function filter(e) {
 // }
 
 //
+// hlleldknlsdkla
