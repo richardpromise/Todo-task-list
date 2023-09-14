@@ -9,6 +9,7 @@ body {
   background-color: #9ca29e77;
   flex-direction: column;
   align-items: center;
+  gap: 50px;
 }
 .wrapper {
   box-shadow: 0 0 8px 0;
@@ -60,7 +61,7 @@ body {
   /* margin-bottom: 10px; */
   border-bottom: 2px solid rgb(97, 97, 114);
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
   outline: none;
   background-color: transparent;
@@ -127,7 +128,8 @@ body {
   justify-content: space-between;
 }
 .clearCompleteBtn,
-.clearTask {
+.clearTask,
+.completed {
   padding: 5px 30px 5px 30px;
   color: #e1fdfd;
   background-color: #030202;
@@ -137,4 +139,59 @@ body {
   font-weight: bolder;
   text-transform: capitalize;
   border: none;
+}
+.completed:hover {
+  background-color: green;
+}
+.report {
+  width: 70%;
+}
+.savedReport {
+  background-color: #fff;
+
+  height: 50%;
+  padding: 10px;
+  margin: 15px;
+  box-shadow: 0 0 8px 0;
+}
+.time {
+  text-align: right;
+  border: none;
+  padding: 5px 15px 5px 15px;
+  color: white;
+  background-color: #187959;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.reportH1 {
+  text-align: center;
+  margin: 10px;
+}
+.resultUl {
+  list-style-type: none;
+}
+.resultLi {
+  padding: 10px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 20%;
+  border-bottom: 2px solid grey;
+  width: 100%;
+}
+.resultWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.repH1 {
+  border-bottom: 2px solid grey;
+  color: white;
+  background-color: #187959;
+  text-align: center;
+}
+.done {
+  color: green;
+  margin: 10px;
+  font-size: 35px;
 }

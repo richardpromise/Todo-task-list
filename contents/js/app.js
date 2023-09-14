@@ -10,6 +10,8 @@ const reportCardList = document.querySelector(".completed-lists");
 const clearCompleteTaskBtn = document.querySelector(".clearCompleteBtn");
 const filterTask2 = document.querySelector(".filterInput2");
 const clearAllAddedTask = document.querySelector(".clearTask");
+const doneBtn = document.querySelector(".completed");
+const newRepo = document.querySelector(".savedReport");
 
 // events
 
@@ -18,9 +20,10 @@ function loadAllevent() {
 
   document.addEventListener("DOMContentLoaded", getTask);
   document.addEventListener("DOMContentLoaded", getTask2);
+  document.addEventListener("DOMContentLoaded", getTask3);
 
   //
-
+  doneBtn.addEventListener("click", finished);
   addBtn.addEventListener("click", addTask);
   formList.addEventListener("click", removeTask);
   clearTasks.addEventListener("click", reset);
@@ -112,7 +115,24 @@ function getTask2() {
     ol.className = "ol";
     let li = document.createElement("li");
     li.className = "completed-lists";
+    let div = document.createElement("div");
+    div.style.display = "flex";
+    div.style.justifyContent = "space-between";
+    div.style.gap = "20px";
+    let date = new Date().toDateString();
+    let time = new Date().toLocaleTimeString();
+    let pTime = document.createElement("p");
+    pTime.textContent = time;
+    pTime.style.fontSize = "10px";
+    let pDate = document.createElement("p");
+    pDate.textContent = date;
+    pDate.style.fontSize = "10px";
+    div.appendChild(pDate);
+    div.appendChild(pTime);
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
     li.textContent = one;
+    li.appendChild(div);
     ol.appendChild(li);
     reportCardForm.appendChild(ol);
   });
@@ -158,6 +178,8 @@ function addTask(e) {
 
   //
 
+  //Finished funtion
+
   // check list event listeners
 
   check.addEventListener("click", run);
@@ -201,11 +223,29 @@ function write(e) {
   ol.className = "ol";
   let li = document.createElement("li");
   li.className = "completed-lists";
+  let div = document.createElement("div");
+  div.style.display = "flex";
+  div.style.justifyContent = "space-between";
+  div.style.gap = "20px";
+  let date = new Date().toDateString();
+  let time = new Date().toLocaleTimeString();
+  let pTime = document.createElement("p");
+  pTime.textContent = time;
+  pTime.style.fontSize = "10px";
+  let pDate = document.createElement("p");
+  pDate.textContent = date;
+  pDate.style.fontSize = "10px";
+  div.appendChild(pDate);
+  div.appendChild(pTime);
+  li.style.display = "flex";
+  li.style.justifyContent = "space-between";
   li.textContent = e;
+  li.appendChild(div);
   ol.appendChild(li);
   reportCardForm.appendChild(ol);
 
   storeTaskToLocalStorage2(e);
+  // done(e);
 }
 
 //
@@ -257,6 +297,7 @@ function removeTask(e) {
 //
 
 // clear added task list
+
 function clearAddedTask() {
   if (confirm("Are you sure")) {
     while (formList.firstChild) {
@@ -265,6 +306,7 @@ function clearAddedTask() {
     localStorage.removeItem("task");
   }
 }
+
 //
 
 // Delete from task local storage through the check icon
@@ -310,7 +352,11 @@ function deleteFromLocalSrorage(parameter) {
 //Reset function
 
 function reset() {
-  if (formList.innerHTML === "" && reportCardForm.innerHTML === "") {
+  if (
+    formList.innerHTML === "" &&
+    reportCardForm.innerHTML === "" &&
+    newRepo.innerHTML === ""
+  ) {
     alert("Done");
   } else {
     if (confirm("Do you want to reset ?")) {
@@ -319,6 +365,9 @@ function reset() {
       }
       while (reportCardForm.firstChild) {
         reportCardForm.removeChild(reportCardForm.firstChild);
+      }
+      while (newRepo.firstChild) {
+        newRepo.removeChild(newRepo.firstChild);
         localStorage.clear();
       }
     }
@@ -381,33 +430,84 @@ function clearCompleteTask() {
   }
 }
 
+// finished function
+function finished() {
+  let result = document.querySelectorAll(".completed-lists");
+
+  result.forEach((result) => {
+    let div = document.querySelector(".savedReport");
+    let div2 = document.createElement("div");
+    div2.className = "resultWrapper";
+    div.appendChild(div2);
+    let i = document.createElement("i");
+    i.className = "fa-solid fa-check-double done";
+    let timeHolder = document.createElement("div");
+    let date = new Date().toLocaleDateString();
+    timeHolder.textContent = date;
+    timeHolder.className = "time";
+    div2.appendChild(i);
+    div2.appendChild(timeHolder);
+    let ul = document.createElement("ul");
+    ul.className = "resultUl";
+    let li = document.createElement("li");
+    li.className = "resultLi";
+    ul.appendChild(li);
+    div.appendChild(ul);
+    let parent = document.querySelector(".report");
+    parent.appendChild(div);
+    li.textContent = result.firstChild.textContent;
+    repo(result.firstChild.textContent);
+  });
+  let newReport = document.querySelector(".reportList");
+  localStorage.removeItem("completedTask");
+  while (newReport.firstChild) {
+    newReport.removeChild(newReport.firstChild);
+  }
+}
+
 //
 
-// no.5 save task function
-// function saveTask() {
-//   if (formList.innerHTML === "") {
-//     alert("Task list is empty!, please add task to proceed");
-//   } else {
-//     if (confirm("Proceed to Submit Tasks?")) {
-//       alert("Task saved");
-//       let items = document.querySelectorAll(".list-items");
+// store  report to local storage
 
-//       items.forEach((items) => {
-//         let text = items.firstChild.textContent;
-//         let taskResult;
-//         if (localStorage.getItem("taskResult") === null) {
-//           taskResult = [];
-//         } else {
-//           taskResult = JSON.parse(localStorage.getItem("taskResult"));
-//         }
-//         taskResult.push(text);
-//         localStorage.setItem("taskResult", JSON.stringify(taskResult));
-//       });
-
-//       formList.innerHTML = "";
-//     }
-//   }
-// }
+function repo(e) {
+  if (localStorage.getItem("report") === null) {
+    report = [];
+  } else {
+    report = JSON.parse(localStorage.getItem("report"));
+  }
+  report.push(e);
+  localStorage.setItem("report", JSON.stringify(report));
+}
 
 //
-// hlleldknlsdkla
+function getTask3() {
+  let report;
+  if (localStorage.getItem("report") === null) {
+    report = [];
+  } else {
+    report = JSON.parse(localStorage.getItem("report"));
+  }
+  report.forEach((put) => {
+    let div = document.querySelector(".savedReport");
+    let div2 = document.createElement("div");
+    div2.className = "resultWrapper";
+    div.appendChild(div2);
+    let i = document.createElement("i");
+    i.className = "fa-solid fa-check-double done";
+    let timeHolder = document.createElement("div");
+    let date = new Date().toLocaleDateString();
+    timeHolder.textContent = date;
+    timeHolder.className = "time";
+    div2.appendChild(i);
+    div2.appendChild(timeHolder);
+    let ul = document.createElement("ul");
+    ul.className = "resultUl";
+    let li = document.createElement("li");
+    li.className = "resultLi";
+    ul.appendChild(li);
+    div.appendChild(ul);
+    let parent = document.querySelector(".report");
+    parent.appendChild(div);
+    li.textContent = put;
+  });
+}
