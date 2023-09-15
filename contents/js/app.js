@@ -58,7 +58,7 @@ function getTask() {
     let div = document.createElement("div");
     div.className = "div";
     let check = document.createElement("i");
-    check.className = "fa-solid fa-check";
+    check.className = "fa-solid fa-check i";
     check.style.color = "green";
     check.style.marginLeft = "80px";
     let a = document.createElement("a");
@@ -116,9 +116,10 @@ function getTask2() {
     let li = document.createElement("li");
     li.className = "completed-lists";
     let div = document.createElement("div");
-    div.style.display = "flex";
-    div.style.justifyContent = "space-between";
-    div.style.gap = "20px";
+    div.className = "dateAndTime ";
+    // div.style.display = "flex";
+    // div.style.justifyContent = "space-between";
+    // div.style.gap = "20px";
     let date = new Date().toDateString();
     let time = new Date().toLocaleTimeString();
     let pTime = document.createElement("p");
@@ -152,7 +153,7 @@ function addTask(e) {
   let div = document.createElement("div");
   div.className = "div";
   let check = document.createElement("i");
-  check.className = "fa-solid fa-check";
+  check.className = "fa-solid fa-check i";
   check.style.color = "green";
   check.style.marginLeft = "80px";
   let a = document.createElement("a");
@@ -224,9 +225,10 @@ function write(e) {
   let li = document.createElement("li");
   li.className = "completed-lists";
   let div = document.createElement("div");
-  div.style.display = "flex";
-  div.style.justifyContent = "space-between";
-  div.style.gap = "20px";
+  div.className = "dateAndTime";
+  // div.style.display = "flex";
+  // div.style.justifyContent = "space-between";
+  // div.style.gap = "20px";
   let date = new Date().toDateString();
   let time = new Date().toLocaleTimeString();
   let pTime = document.createElement("p");
