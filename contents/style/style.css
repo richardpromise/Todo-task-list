@@ -17,6 +17,7 @@ body {
   width: 50%;
   background-color: white;
   padding: 30px 30px 5px 30px;
+  border-radius: 25px;
 }
 .form {
   margin: 10px;
@@ -133,6 +134,7 @@ body {
 .reset {
   display: flex;
   justify-content: space-between;
+  margin-top: 30px;
 }
 .clearCompleteBtn,
 .clearTask,
@@ -152,6 +154,7 @@ body {
 }
 .report {
   width: 50%;
+  display: none;
 }
 .dateAndTime {
   display: flex;
@@ -199,15 +202,29 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.linkHolder {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  align-items: center;
+}
+.link,
 .repH1 {
-  border-bottom: 2px solid grey;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+}
+.repH1 {
+  border: none;
   color: white;
   background-color: #187959;
-  text-align: center;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 20px;
 }
 .done {
   color: green;
-  margin: 10px 0 0 0;
+  margin: 10px 0 10px 0;
   font-size: 35px;
 }
 .footer {
@@ -247,6 +264,7 @@ body {
   }
   .reset {
     display: block;
+    margin: 10px;
   }
   .dateAndTime {
     display: none;
@@ -297,12 +315,18 @@ body {
     color: #187971;
     font-size: 17px;
   }
+
+  .link,
   .repH1 {
-    border-bottom: 2px solid grey;
-    color: white;
-    background-color: #187959;
-    text-align: center;
-    margin: 0;
+    /* padding: 10px; */
+    width: 100%;
+    font-weight: bold;
+  }
+  .linkHolder {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    align-items: center;
   }
   .resultLi {
     padding: 10px;
@@ -320,5 +344,8 @@ body {
   }
   .i {
     margin-left: 80%;
+  }
+  .wrapper {
+    border-radius: 0;
   }
 }

@@ -12,7 +12,8 @@ const filterTask2 = document.querySelector(".filterInput2");
 const clearAllAddedTask = document.querySelector(".clearTask");
 const doneBtn = document.querySelector(".completed");
 const newRepo = document.querySelector(".savedReport");
-
+const historyBtn = document.querySelector(".repH1");
+const historyList = document.querySelector(".report");
 // events
 
 function loadAllevent() {
@@ -31,7 +32,7 @@ function loadAllevent() {
   clearCompleteTaskBtn.addEventListener("click", clearCompleteTask);
   filterTask2.addEventListener("input", filter2);
   clearAllAddedTask.addEventListener("click", clearAddedTask);
-
+  historyBtn.addEventListener("click", showHistory);
   // submit.addEventListener("click", saveTask);
 }
 
@@ -371,6 +372,7 @@ function reset() {
       while (newRepo.firstChild) {
         newRepo.removeChild(newRepo.firstChild);
       }
+      historyList.style.display = "none";
       localStorage.clear();
     }
   }
@@ -512,5 +514,19 @@ function getTask3() {
     parent.appendChild(div);
     li.textContent = put;
   });
+}
+
+// show history
+function showHistory(e) {
+  e.preventDefault();
+  if (newRepo.innerHTML === "") {
+    alert("History Empty");
+  } else {
+    if (historyList.style.display === "none") {
+      historyList.style.display = "block";
+    } else {
+      historyList.style.display = "none";
+    }
+  }
 }
 // almost done
