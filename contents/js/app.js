@@ -302,11 +302,15 @@ function removeTask(e) {
 // clear added task list
 
 function clearAddedTask() {
-  if (confirm("Are you sure")) {
-    while (formList.firstChild) {
-      formList.removeChild(formList.firstChild);
+  if (formList.innerHTML === "") {
+    alert("List empty");
+  } else {
+    if (confirm("Are you sure")) {
+      while (formList.firstChild) {
+        formList.removeChild(formList.firstChild);
+      }
+      localStorage.removeItem("task");
     }
-    localStorage.removeItem("task");
   }
 }
 
