@@ -16,6 +16,7 @@ body {
   margin: 10px;
   width: 50%;
   background-color: white;
+  padding: 30px 30px 5px 30px;
 }
 .form {
   margin: 10px;
@@ -106,6 +107,8 @@ body {
 }
 .i {
   color: green;
+  margin-left: 80px;
+  margin-top: 5px;
 }
 .ol {
   list-style: none;
@@ -204,8 +207,17 @@ body {
 }
 .done {
   color: green;
-  margin: 10px;
+  margin: 10px 0 0 0;
   font-size: 35px;
+}
+.footer {
+  text-align: center;
+  margin: 20px 20px 5px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  color: rgb(14, 50, 39);
+  font-size: 10px;
 }
 
 @media screen and (max-width: 768px) {
