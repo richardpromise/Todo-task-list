@@ -370,8 +370,8 @@ function reset() {
       }
       while (newRepo.firstChild) {
         newRepo.removeChild(newRepo.firstChild);
-        localStorage.clear();
       }
+      localStorage.clear();
     }
   }
 }

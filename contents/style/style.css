@@ -14,7 +14,7 @@ body {
 .wrapper {
   box-shadow: 0 0 8px 0;
   margin: 10px;
-  width: 70%;
+  width: 50%;
   background-color: white;
 }
 .form {
@@ -145,7 +145,7 @@ body {
   background-color: green;
 }
 .report {
-  width: 70%;
+  width: 50%;
 }
 .dateAndTime {
   display: flex;
@@ -204,6 +204,7 @@ body {
   margin: 10px;
   font-size: 35px;
 }
+
 @media screen and (max-width: 768px) {
   .completed-h1 {
     color: #04310e;
