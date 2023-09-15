@@ -436,36 +436,41 @@ function clearCompleteTask() {
 
 // finished function
 function finished() {
-  let result = document.querySelectorAll(".completed-lists");
+  if (reportCardForm.innerHTML === "") {
+    alert(" Sorry nothing to add");
+  } else {
+    alert("Seved to history");
+    let result = document.querySelectorAll(".completed-lists");
 
-  result.forEach((result) => {
-    let div = document.querySelector(".savedReport");
-    let div2 = document.createElement("div");
-    div2.className = "resultWrapper";
-    div.appendChild(div2);
-    let i = document.createElement("i");
-    i.className = "fa-solid fa-check-double done";
-    let timeHolder = document.createElement("div");
-    let date = new Date().toLocaleDateString();
-    timeHolder.textContent = date;
-    timeHolder.className = "time";
-    div2.appendChild(i);
-    div2.appendChild(timeHolder);
-    let ul = document.createElement("ul");
-    ul.className = "resultUl";
-    let li = document.createElement("li");
-    li.className = "resultLi";
-    ul.appendChild(li);
-    div.appendChild(ul);
-    let parent = document.querySelector(".report");
-    parent.appendChild(div);
-    li.textContent = result.firstChild.textContent;
-    repo(result.firstChild.textContent);
-  });
-  let newReport = document.querySelector(".reportList");
-  localStorage.removeItem("completedTask");
-  while (newReport.firstChild) {
-    newReport.removeChild(newReport.firstChild);
+    result.forEach((result) => {
+      let div = document.querySelector(".savedReport");
+      let div2 = document.createElement("div");
+      div2.className = "resultWrapper";
+      div.appendChild(div2);
+      let i = document.createElement("i");
+      i.className = "fa-solid fa-check-double done";
+      let timeHolder = document.createElement("div");
+      let date = new Date().toLocaleDateString();
+      timeHolder.textContent = date;
+      timeHolder.className = "time";
+      div2.appendChild(i);
+      div2.appendChild(timeHolder);
+      let ul = document.createElement("ul");
+      ul.className = "resultUl";
+      let li = document.createElement("li");
+      li.className = "resultLi";
+      ul.appendChild(li);
+      div.appendChild(ul);
+      let parent = document.querySelector(".report");
+      parent.appendChild(div);
+      li.textContent = result.firstChild.textContent;
+      repo(result.firstChild.textContent);
+    });
+    let newReport = document.querySelector(".reportList");
+    localStorage.removeItem("completedTask");
+    while (newReport.firstChild) {
+      newReport.removeChild(newReport.firstChild);
+    }
   }
 }
 
