@@ -104,6 +104,9 @@ body {
   border-top: 2px solid grey;
   font-size: 35px;
 }
+.i {
+  color: green;
+}
 .ol {
   list-style: none;
 }
@@ -256,11 +259,12 @@ body {
   }
   .list-items {
     display: block;
+    margin-bottom: 15px;
     overflow-x: scroll;
   }
   .div {
     text-align: center;
-    margin-left: 30%;
+    /* margin-left: 30%; */
   }
   .completed-lists {
     font-size: 20px;
@@ -301,5 +305,8 @@ body {
   }
   .report {
     width: 85%;
+  }
+  .i {
+    margin-left: 80%;
   }
 }

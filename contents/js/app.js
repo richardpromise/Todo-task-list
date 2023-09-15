@@ -59,8 +59,8 @@ function getTask() {
     div.className = "div";
     let check = document.createElement("i");
     check.className = "fa-solid fa-check i";
-    check.style.color = "green";
-    check.style.marginLeft = "80px";
+    // check.style.color = "green";
+    // check.style.marginLeft = "80px";
     let a = document.createElement("a");
     a.setAttribute("href", "#");
     a.className = "a-tag";
@@ -154,8 +154,8 @@ function addTask(e) {
   div.className = "div";
   let check = document.createElement("i");
   check.className = "fa-solid fa-check i";
-  check.style.color = "green";
-  check.style.marginLeft = "80px";
+  // check.style.color = "green";
+  // check.style.marginLeft = "80px";
   let a = document.createElement("a");
   a.setAttribute("href", "#");
   a.className = "a-tag";
